@@ -1,0 +1,19 @@
+{% include 'header.html' %}
+<div style="height: 100vh; background-color: white;width: 80%; margin-left: 10vh;">
+    <h1>Sign up form</h1>
+    <div width="50%">
+    <form method="post" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <br>
+
+    <button class="btn btn-primary">upload</button>
+    
+    
+    </form>
+    </div>
+    
+    
+    </div>
+    
+{% include 'footer.html' %}

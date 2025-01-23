@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+
+
+    {% for i in products %}
+
+        <div class="card d-inline-flex " style="width: 20rem; margin-bottom: 10px;">
+         <img src="{{i.prod_img.url}}" class="card-img-top" style="width: 20rem; height: 150rempx;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{i.price}}</h5>
+                <p class="card-text">{{i.description}}</p>
+                <a href="#" class="btn btn-primary">Add to Card</a>
+                <a href="{% url 'download' i.id %}" class="btn btn-success">downoload</a>
+            </div>
+        </div>
+  
+    {% endfor %}
+
+{% include 'footer.html' %}

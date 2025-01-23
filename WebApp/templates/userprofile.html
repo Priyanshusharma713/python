@@ -1,0 +1,31 @@
+{% include 'header.html' %}
+<table width="20%" height="50px" align="center" class="table table-striped">
+<!-- <div style=" height: 100vh;background-color: white;"> -->
+
+    <tr>
+        <th>name</th>
+        <th>contact</th>
+        <th>address</th>
+    </tr>
+
+<!-- <p>Hello,{{user}}</p> -->
+ {% for i in user_detail %}
+
+ <!-- <h3>User {{forloop.counter}} Details:</h3>
+
+ <p>Name: {{i.name}}</p>
+ <p>Contact: {{i.contact}}</p>
+ <p>Adress: {{i.adress}}</p> -->
+
+ <tr>
+    <td>{{i.name}}</td>
+    <td>{{i.Contact}}</td>
+    <td>{{i.address}}</td>
+ </tr>
+
+{% endfor %}
+</table>
+
+<!-- </div> -->
+
+{% include "footer.html" %}

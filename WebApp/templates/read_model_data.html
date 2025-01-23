@@ -1,0 +1,54 @@
+{% include 'header.html' %}
+
+<button ><a class="btn btn-primary" href="{% url 'insert_data' %}"> Add user</a></button>
+<table width="20%" height="50px" align="center" class="table table-striped">
+<!-- <div style=" height: 100vh;background-color: white;"> -->
+
+    <tr>
+        <th>name</th>
+        <th>contact</th>
+        <th>address</th>
+        <th>action</th>
+    </tr>
+
+<!-- <p>Hello,{{user}}</p> -->
+ {% for i in page_obj %}
+
+ <!-- <h3>User {{forloop.counter}} Details:</h3>
+
+ <p>Name: {{i.name}}</p>
+ <p>Contact: {{i.contact}}</p>
+ <p>Adress: {{i.adress}}</p> -->
+
+ <tr>
+    <td>{{i.name}}</td>
+    <td>{{i.Contact}}</td>
+    <td>{{i.address}}</td>
+    <td><span><a href="{%url 'update' i.id %}" class="btn btn-primary"> Edit</a></span>
+        <span><a href="{%url 'delete' i.id %}" class="btn btn-danger"> Delete</a></span>
+    </td>
+ </tr>
+
+{% endfor %}
+</table>
+
+<!-- </div> -->
+ <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_prebious %}
+            <a href="1">&laquo; first</a>
+            <a href="{{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}.
+        </span>
+
+        {% if page_obj.has_next %}
+        <a href="{{page_obj.next_page_number}}">next</a>
+        <a href="{{page_obj.paginator.num_pages}}">&raquo;</a>
+        {% endif %}
+    </span>
+ </div>
+
+{% include "footer.html" %}
